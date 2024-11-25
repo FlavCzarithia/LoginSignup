@@ -14,21 +14,24 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button btnlogin;
+    private Button signup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        Button btnlogin = findViewById(R.id.btnlogin);
-        TextView signup = findViewById(R.id.signup);
-~
-        signup.setOnClickListener();
+        btnlogin = findViewById(R.id.btnlogin);
+        signup = findViewById(R.id.signup);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        btnlogin.setOnClickListener(v -> {
+            Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(loginIntent);
         });
 
+        signup.setOnClickListener(v -> {
+            Intent signUpIntent = new Intent(MainActivity.this, SignupActivity.class);
+            startActivity(signUpIntent);
+        });
     }
 }

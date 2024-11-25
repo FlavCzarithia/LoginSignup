@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/signup"
         android:layout_width="wrap_content"
@@ -16,8 +17,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
-
+        app:layout_constraintVertical_bias="0.081" />
 
     <EditText
         android:id="@+id/etname"
@@ -29,13 +29,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.737" />
 
     <EditText
         android:id="@+id/etsurname"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:hint="Surname"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etemail"
@@ -46,7 +46,7 @@
         android:id="@+id/etemail"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         android:hint="Email"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etusername"
@@ -68,7 +68,7 @@
         android:id="@+id/etpassword"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:hint="Password"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etrepassword"
@@ -90,7 +90,7 @@
         android:id="@+id/etgender"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:hint="Gender"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etmobnumber"
@@ -101,7 +101,7 @@
         android:id="@+id/etmobnumber"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="68dp"
         android:hint="Mobile Number"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/ProgrammerDetails"
@@ -120,5 +120,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.977" />
 
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etmobnumber" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
