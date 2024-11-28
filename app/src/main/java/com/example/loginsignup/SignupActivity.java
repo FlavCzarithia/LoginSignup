@@ -1,18 +1,13 @@
 package com.example.loginsignup;
 
-import android.os.Bundle;
-import android.view.View;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.TextView;
-import androidx.activity.EdgeToEdge;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 public class SignupActivity extends AppCompatActivity {
 
     private EditText etname, etsurname, etemail, etusername, etpassword, etrepassword, etmobnumber, etgender;
@@ -22,7 +17,6 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
         etname = findViewById(R.id.etname);
         etsurname = findViewById(R.id.etsurname);
         etemail = findViewById(R.id.etemail);
@@ -32,7 +26,6 @@ public class SignupActivity extends AppCompatActivity {
         etgender = findViewById(R.id.etgender);
         etmobnumber = findViewById(R.id.etmobnumber);
         btnSignup = findViewById(R.id.btnSignup);
-
         btnSignup.setOnClickListener(v -> {
             String firstName = etname.getText().toString().trim();
             String lastName = etsurname.getText().toString().trim();
@@ -42,7 +35,14 @@ public class SignupActivity extends AppCompatActivity {
             String retypePassword = etrepassword.getText().toString().trim();
             String gender = etgender.getText().toString().trim();
             String mobileNo = etmobnumber.getText().toString().trim();
-
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(SignupActivity.this, "Enter a valid email", Toast.LENGTH_SHORT).show();
+            return;
+            }
+            if (!android.util.Patterns.PHONE.matcher(mobileNo).matches()) {
+                Toast.makeText(SignupActivity.this, "Enter a valid mobile number", Toast.LENGTH_SHORT).show();
+                return;
+            }
             if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || username.isEmpty() ||
                     password.isEmpty() || retypePassword.isEmpty() || gender.isEmpty() || mobileNo.isEmpty()) {
                 Toast.makeText(SignupActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
@@ -52,18 +52,24 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(SignupActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$")) {
+                Toast.makeText(SignupActivity.this, "Password must contain at least 8 characters, including uppercase, lowercase, digit, and a special character", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-            Toast.makeText(SignupActivity.this, "Signup Successful", Toast.LENGTH_SHORT).show();
-
-            Intent profileIntent = new Intent(SignupActivity.this, ProfileActivity.class);
-            profileIntent.putExtra("firstName", firstName);
-            profileIntent.putExtra("lastName", lastName);
-            profileIntent.putExtra("email", email);
-            profileIntent.putExtra("username", username);
-            profileIntent.putExtra("password", password);
-            profileIntent.putExtra("gender", gender);
-            profileIntent.putExtra("mobileNo", mobileNo);
-            startActivity(profileIntent);
+            SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("firstName", firstName);
+            editor.putString("lastName", lastName);
+            editor.putString("email", email);
+            editor.putString("username", username);
+            editor.putString("password", password);
+            editor.putString("gender", gender);
+            editor.putString("mobileNo", mobileNo);
+            editor.apply();
+            Toast.makeText(SignupActivity.this, "Signup Success", Toast.LENGTH_SHORT).show();
+            Intent loginIntent = new Intent(SignupActivity.this, LoginActivity.class);
+            startActivity(loginIntent);
         });
     }
 }

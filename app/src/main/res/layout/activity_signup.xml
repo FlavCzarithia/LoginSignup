@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
 
     <TextView
@@ -17,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <EditText
         android:id="@+id/etname"
@@ -29,13 +30,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup"
-        app:layout_constraintVertical_bias="0.737" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/etsurname"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="4dp"
         android:hint="Surname"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etemail"
@@ -57,7 +58,7 @@
         android:id="@+id/etusername"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="4dp"
         android:hint="Username"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etpassword"
@@ -68,18 +69,19 @@
         android:id="@+id/etpassword"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="12dp"
         android:hint="Password"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etrepassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/etrepassword"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="8dp"
         android:hint="Retype Password"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etgender"
@@ -90,7 +92,7 @@
         android:id="@+id/etgender"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="16dp"
         android:hint="Gender"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/etmobnumber"
@@ -101,7 +103,7 @@
         android:id="@+id/etmobnumber"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
+        android:layout_marginBottom="144dp"
         android:hint="Mobile Number"
         android:inputType="textPersonName|textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/ProgrammerDetails"
@@ -115,19 +117,18 @@
         android:text="@string/details"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <Button
         android:id="@+id/btnSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="36dp"
         android:text="Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etmobnumber" />
 

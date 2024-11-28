@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
+    android:background="@color/white"
     tools:context=".LoginActivity">
 
     <!-- Title Text -->
+
     <TextView
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
@@ -16,22 +18,25 @@
         android:textColor="#000000"
         android:textSize="37sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/etUsername"
+        app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405" />
+        app:layout_constraintVertical_bias="0.549" />
+
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etEmail"
         android:layout_width="287dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="452dp"
         android:autofillHints=""
-        android:hint="Username"
+        android:hint="Email"
         android:padding="15dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="240dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -46,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <Button
         android:id="@+id/btnLogin"
