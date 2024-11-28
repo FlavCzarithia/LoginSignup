@@ -2,7 +2,7 @@ package com.example.loginsignup;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.SharedPreferences;
 public class ProfileActivity extends AppCompatActivity {
 
     private TextView tvCompProfile;
@@ -13,17 +13,14 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         tvCompProfile = findViewById(R.id.tvCompProfile);
-
-        // Retrieve the data passed from SignupActivity
-        String firstName = getIntent().getStringExtra("firstName");
-        String lastName = getIntent().getStringExtra("lastName");
-        String email = getIntent().getStringExtra("email");
-        String username = getIntent().getStringExtra("username");
-        String password = getIntent().getStringExtra("password");
-        String mobileNo = getIntent().getStringExtra("mobileNo");
-        String gender = getIntent().getStringExtra("gender");
-
-        // Display the user's profile
+        SharedPreferences sharedPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE);
+        String firstName = sharedPreferences.getString("firstName", "");
+        String lastName = sharedPreferences.getString("lastName", "");
+        String email = sharedPreferences.getString("email", "");
+        String username = sharedPreferences.getString("username", "");
+        String password = sharedPreferences.getString("password", "");
+        String mobileNo = sharedPreferences.getString("mobileNo", "");
+        String gender = sharedPreferences.getString("gender", "");
         String profile = "Name: " + firstName + " " + lastName + "\n" +
                 "Email: " + email + "\n" +
                 "Username: " + username + "\n" +
